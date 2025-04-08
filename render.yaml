@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: solace-bridge
+    env: python
+    buildCommand: ""
+    startCommand: uvicorn cloud_task_bridge:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: NGROK_ENDPOINT
+        value: https://solace-dj.ngrok.io
+      - key: AUTH_TOKEN
+        value: solace_super_secret_123
